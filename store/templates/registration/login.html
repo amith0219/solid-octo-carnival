@@ -1,0 +1,38 @@
+{% extends "store/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <div id="breadcrumb" class="section">
+			<!-- container -->
+		<div class="container">
+				<!-- row -->
+			<div class="row">
+				<div class="col-md-12">
+					<ul class="breadcrumb-tree">
+						<li class="active"><a  href="#">HOME</a></li>
+						<li class="active">Login Page</li>
+					</ul>
+				</div>
+			</div>
+				<!-- /row -->
+		</div>
+			<!-- /container -->
+	</div>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Log In</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="primary-btn" type="submit">Login</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Need An Account? <a class="ml-2" href="{% url 'register' %}"><b>Register</b></a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}
